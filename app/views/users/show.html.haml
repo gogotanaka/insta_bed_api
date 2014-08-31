@@ -1,9 +1,22 @@
-#users
+#invitations
   #show
     %h1
       = link_to @user.name, @user.facebook_url || '#', class: 'main-color'
-    %h4= "#{@user.name}の投稿"
-    = render 'news_list', news_list: @user.news
-    %h4{style: 'margin-top: 50px'}
-      = "#{@user.name}がプッシュしている投稿"
-    = render 'news_list', news_list: @user.vote_news
+    %h4= "#{@user.name}さんの予約一覧"
+    - @user.booking_invitations.each do |invitation|
+      %h5= link_to invitation.address, invitation_path(invitation)
+      %h6= '料金: ' + invitation.price.to_s
+      %h6= '連絡先: ' + invitation.email
+      %h6= '詳細: ' + invitation.describe
+      %h6= '予約した時間: ' + invitation.updated_at.to_s
+
+      %h6= image_tag invitation.image, width: '200px'
+
+    %h4= "#{@user.name}さんの出品"
+    - @user.invitations.each do |invitation|
+      %h5= link_to invitation.address, invitation_path(invitation)
+      %h6= '料金: ' + invitation.price.to_s
+      %h6= '詳細: ' + invitation.describe
+      %h6= '予約した時間: ' + invitation.updated_at.to_s
+
+      %h6= image_tag invitation.image, width: '200px'

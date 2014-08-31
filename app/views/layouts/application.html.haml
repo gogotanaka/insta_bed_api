@@ -1,7 +1,7 @@
 !!!
 %html{dir: "ltr", lang: "ja", "xml:lang" => "ja", xmlns: "http://www.w3.org/1999/xhtml", "xmlns:fb" => "http://www.facebook.com/2008/fbml", "xmlns:og" => "http://ogp.me/ns#"}
   %head
-    %title Hacker Board
+    %title Instabed
     = stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true
     = javascript_include_tag "application", "data-turbolinks-track" => true
     %meta{ name: 'description', content: 'Hacker Board は最新アプリ、ウェブサービスのローンチ情報や、テック系ニュースを共有するサイトです。' }
@@ -22,7 +22,7 @@
   %body
     %nav#header.clearfix
       #logWrapper
-        = link_to 'Hacker Board', root_path, class: 'navbar-brand'
+        = link_to 'Instabed', root_path, class: 'navbar-brand'
         .pull-right
           .clearfix.Btns
             - if current_user
@@ -32,11 +32,11 @@
                   %p.pull-left{style: 'font-size: 15px; line-height: 21px; padding-top: 5px;'}
                     Logout
 
-              = link_to new_news_path, class: 'pull-right btn-post' do
+              = link_to new_invitation_path, class: 'pull-right btn-post' do
                 .clearfix
                   %i.fa.fa-pencil-square-o.pull-left
                   %p.pull-left{style: 'font-size: 15px; line-height: 21px; padding-top: 5px;'}
-                    Post
+                    Invitation
 
             - else
               = link_to user_omniauth_authorize_path(:facebook), class: 'btn-facebook pull-right' do
@@ -49,7 +49,7 @@
                 .clearfix
                   %i.fa.fa-pencil-square-o.pull-left
                   %p.pull-left{style: 'font-size: 15px; line-height: 21px; padding-top: 5px;'}
-                    Post
+                    Invitation
 
     #mainContents
       = yield

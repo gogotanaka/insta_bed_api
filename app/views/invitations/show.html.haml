@@ -1,0 +1,19 @@
+%p#notice= notice
+
+%p
+  %b Price:
+  = @invitation.price
+%p
+  %b Address:
+  = @invitation.address
+%p
+  %b Describe:
+  = @invitation.describe
+
+%p
+  %b Image:
+  = image_tag @invitation.image, width: '200px'
+
+
+
+= link_to 'Book', book_user_path(current_user, invitation_id: @invitation.id), data: {confirm: 'Bookしますが本当によろしいでしょうか？'}, method: :post

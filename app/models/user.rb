@@ -5,12 +5,8 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable, :omniauthable, omniauth_providers: [:facebook]
 
-  has_many :relation_vote
-  has_many :vote_news, through: :relation_vote, source: :news
-
-  has_many :comments
-
-  has_many :news
+  has_many :booking_invitations, class_name: '::Invitation', foreign_key: :booking_user_id
+  has_many :invitations
 
   def vote(news)
     unless vote?(news)

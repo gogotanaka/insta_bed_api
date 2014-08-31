@@ -7,17 +7,20 @@ Rails.application.routes.draw do
     resources :news, only: [:index, :edit]
   end
 
-  resources :users, only: [:show, :edit]
-  post 'users/vote'
+  resources :users, only: [:show, :edit] do
+    member do
+      post :book
+    end
+  end
 
-  post 'comments' => 'users#post_comment', as: :comments
-  delete 'comment/:id' => 'users#delete_comment', as: :comment
+  resources :invitations
+
+
 
 
 
   devise_for :users, controllers: { omniauth_callbacks: "users/omniauth_callbacks" }
-  resources :news, only: [:show, :new, :create, :destroy, :update]
-  get 'news/jump/:id' => 'news#jump', as: :news_jump
+
 
   get 'welcome/index'
 

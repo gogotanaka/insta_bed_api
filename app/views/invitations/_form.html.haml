@@ -1,0 +1,30 @@
+= form_for @invitation do |f|
+  - if @invitation.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@invitation.errors.count, "error")} prohibited this invitation from being saved:"
+      %ul
+        - @invitation.errors.full_messages.each do |msg|
+          %li= msg
+
+  .form-group.row
+    = f.label :price, class: 'col-sm-2 control-label'
+    .col-sm-4
+      = f.number_field :price, class: 'form-control'
+  .form-group.row
+    = f.label :address, class: 'col-sm-2 control-label'
+    .col-sm-4
+      = f.text_field :address, class: 'form-control'
+  .form-group.row
+    = f.label :describe, class: 'col-sm-2 control-label'
+    .col-sm-4
+      = f.text_area :describe, class: 'form-control'
+  .form-group.row
+    = f.label :email, class: 'col-sm-2 control-label'
+    .col-sm-4
+      = f.text_field :email, class: 'form-control'
+  .form-group.row
+    = f.label :image, class: 'col-sm-2 control-label'
+    .col-sm-4
+      = f.file_field :image, class: 'form-control'
+  .form-group.row
+    = f.submit 'Save'
