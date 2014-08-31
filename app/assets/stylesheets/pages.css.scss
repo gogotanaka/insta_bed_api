@@ -1,0 +1,211 @@
+// Place all the styles related to the news controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+@mixin rounded_corners($radius: 3px) {
+  border-radius: $radius;
+  -moz-border-radius: $radius;
+  -webkit-border-radius: $radius;
+}
+
+@mixin vertical-align {
+  position: relative;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+
+$mainColor: #00c349;
+
+$grayColor: #999;
+
+.main-color { color: $mainColor }
+.gray-color { color: $grayColor }
+
+.red-color { color: #d9534f }
+
+.navbar-brand { color: #fff !important; }
+
+@mixin a_btn {
+  margin-top: 4px;
+  font-size: 31px;
+  color: #fff;
+  &:hover {
+    color: #ddd;
+  }
+}
+
+.btn-facebook {
+  @include a_btn;
+}
+
+.btn-post {
+  @include a_btn;
+  margin-right: 20px;
+}
+
+.btn-logout {
+  @include a_btn;
+}
+
+body { background-color: rgb(235,235,235) !important; }
+
+body {
+  background-color: rgb(235,235,235) !important;
+  #header {
+    width: 100%;
+    height: 50px;
+    padding: 0 40px;
+    float: center;
+    background-color: $mainColor !important;
+    border-color: $mainColor !important;
+    #logWrapper {
+      background-color: $mainColor !important;
+      border-color: $mainColor !important;
+      width: 975px;
+      height: 50px;
+      margin: 0 auto;
+      .navbar-brand {
+        padding-left: 0;
+        font-size: 20px;
+      }
+      .Btns {
+        padding-top: 6px;
+      }
+    }
+  }
+  #mainContents {
+    margin: 50px auto 0;
+    padding: 0 40px;
+    padding: 11px 40px 40px;
+    @include rounded_corners(5px);
+    background-color: #fff;
+    width: 975px;
+    #news {
+      padding-top: 20px;
+      .form-group {
+        padding: 10px 0;
+      }
+      ul#comments {
+        margin-bottom: 20px;
+        padding: 0;
+        li.comment {
+          list-style-type: none;
+          padding: 8px 0;
+        }
+      }
+      #new {
+        h1 {
+          margin: 0 0 20px;
+        }
+      }
+      #show {
+        h3 {
+          margin: 0 0 20px;
+        }
+      }
+      #jump {
+        h3 {
+          margin: 0 0 20px;
+        }
+      }
+    }
+    #welcome {
+      h4 {
+        color: #999;
+      }
+    }
+    #users {
+      padding-top: 20px;
+      #show {
+        h4 {
+          margin: 30px 0 20px;
+        }
+        h1 {
+          margin: 0;
+        }
+      }
+    }
+  }
+  ul#newsWrapper {
+    padding: 0;
+    .borderDiv {
+      width: 790px;
+      height: 2px;
+      background-color: #ddd;
+      margin: 0 auto;
+
+    }
+    li.newsList {
+      margin: 15px 0 0;
+      height: 75px;
+      list-style-type: none;
+      .newsWrapper {
+        height: 60px;
+        float: left;
+        .rankingIcon {
+          width: 30px;
+          height: 30px;
+          font-size: 25px;
+          line-height: 30px;
+          margin: 15px 0;
+          float: left;
+          @include rounded_corners(3px);
+          background-color: $mainColor;
+          color: #fff;
+          text-align: center;
+        }
+        .voteInfo {
+          width: 40px;
+          height: 40px;
+          margin: 10px 7px;
+          float: left;
+          text-align: center;
+          color: $grayColor !important;
+          .voteBtn {
+            font-size: 30px;
+            line-height: 30px;
+            height: 20px;
+            a {
+              color: $grayColor !important;
+              &:hover {
+                color: $mainColor !important;
+              }
+            }
+          }
+          .voteCount {
+            font-size: 17px;
+            line-height: 17px;
+            margin: 0;
+          }
+        }
+        .newsContents {
+          float: left;
+          height: 50px;
+          margin: 5px 0;
+          h2 {
+            font-size: 16px;
+            margin: 5px 0 5px 0;
+            a.deleteBtn { color: $grayColor !important; }
+
+          }
+          .detail {
+            color: $grayColor;
+          }
+        }
+      }
+      .commentBtn {
+        margin-top: 10px;
+        float: right;
+        text-align: center;
+        .commentIcon {
+          color: $grayColor;
+        }
+        .commentCount {
+          color: $grayColor;
+        }
+      }
+    }
+  }
+}

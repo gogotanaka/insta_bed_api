@@ -1,0 +1,52 @@
+#welcome
+  .clearfix.Btns
+    - if current_user
+      = link_to destroy_user_session_path, method: :delete, class: 'btn btn-danger pull-right', style: 'margin-top: 10px' do
+        %i.fa.fa-power-off
+        ログアウト
+      = link_to new_news_path, class: 'btn btn-primary pull-right', style: 'margin-right: 10px; margin-top: 10px' do
+        %i.fa.fa-pencil
+        ニュースを投稿する
+    - else
+      = link_to user_omniauth_authorize_path(:facebook), class: 'btn btn-facebook pull-right' do
+        %i.fa.fa-facebook-square
+        Facebookログイン
+
+  %ul#newsWrapper
+    - @news.each.with_index(1) do |news, i|
+      %li.newsList.clearfix
+        .rankingIcon= i
+        .voteInfo
+          .voteBtn
+            - if current_user
+              - if current_user.vote_news.include?(news)
+                %i.fa.fa-sort-asc.main-color
+              - else
+                = link_to users_vote_path(news_id: news.id), method: :post do
+                  %i.fa.fa-sort-asc
+            - else
+              = link_to '#', onclick: 'alert("ログインすると投票が出来るようになります。")' do
+                %i.fa.fa-sort-asc
+          .voteCount
+            = news.relation_votes.count
+        .newsContents
+          %h2= news_title(news)
+          .detail
+            = ' by '
+            = user_link(news.user)
+            = '  ' + formalize(news.created_at)
+            - if current_user == news.user
+              = link_to 'x', news_path(news), method: :delete, class: 'red-color', data: {confirm: 'ニュースを削除します。本当に宜しいでしょうか。'}
+            // = news.contents
+        .commentBtn
+          = link_to news_path(news) do
+            .commentIcon
+              %i.fa.fa-comment
+            .commentCount
+              = news.comments.count
+              comment
+
+
+
+
+

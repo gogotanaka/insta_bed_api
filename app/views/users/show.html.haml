@@ -1,0 +1,9 @@
+#users
+  #show
+    %h1
+      = link_to @user.name, @user.facebook_url || '#', class: 'main-color'
+    %h4= "#{@user.name}の投稿"
+    = render 'news_list', news_list: @user.news
+    %h4{style: 'margin-top: 50px'}
+      = "#{@user.name}がプッシュしている投稿"
+    = render 'news_list', news_list: @user.vote_news
