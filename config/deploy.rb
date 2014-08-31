@@ -3,7 +3,7 @@ lock '3.2.1'
 set :application, 'hacker_board'
 set :user, "deployer"
 
-set :repo_url, 'git@github.com:gogotanaka/hacker_board.git'
+set :repo_url, 'git@github.com:gogotanaka/insta_bed.git'
 set :branch, 'master'
 
 # Default deploy_to directory is /var/www/my_app
