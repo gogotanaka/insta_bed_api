@@ -3,4 +3,8 @@
     %h5= link_to invitation.address, invitation_path(invitation)
     %h6= '料金: ' + invitation.price.to_s
     %h6= '詳細: ' + invitation.describe
+
+    %h6
+      = 'ユーザー: '
+      = link_to invitation.user.try(:name), invitation.user
     %h6= image_tag invitation.image, width: '200px'
