@@ -9,7 +9,6 @@
       %h6= '連絡先: ' + invitation.email
       %h6= '詳細: ' + invitation.describe
       %h6= '予約した時間: ' + invitation.updated_at.to_s
-
       %h6= image_tag invitation.image, width: '200px'
 
     %h4= "#{@user.name}さんの出品"
@@ -17,6 +16,5 @@
       %h5= link_to invitation.address, invitation_path(invitation)
       %h6= '料金: ' + invitation.price.to_s
       %h6= '詳細: ' + invitation.describe
-      %h6= '予約した時間: ' + invitation.updated_at.to_s
-
+      %h6= '出品した時間: ' + invitation.created_at.to_s
       %h6= image_tag invitation.image, width: '200px'
