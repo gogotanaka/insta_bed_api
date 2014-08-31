@@ -2,7 +2,7 @@ set :stage, :production
 set :rails_env, :production
 set :db_host, "107.170.210.62"
 
-set :linked_dirs, %w{bin log tmp/pids tmp/cache tmp/sockets vendor/bundle public/system}
+set :linked_dirs, %w{bin log tmp/pids tmp/cache tmp/sockets vendor/bundle public/system public/uploads}
 
 # Simple Role Syntax
 # ==================
