@@ -1,6 +1,6 @@
 lock '3.2.1'
 
-set :application, 'hacker_board'
+set :application, 'insta_bed'
 set :user, "deployer"
 
 set :repo_url, 'git@github.com:gogotanaka/insta_bed.git'
