@@ -1,9 +1,9 @@
 lock '3.2.1'
 
-set :application, 'insta_bed'
+set :application, 'insta_bed_api'
 set :user, "deployer"
 
-set :repo_url, 'git@github.com:gogotanaka/insta_bed.git'
+set :repo_url, 'git@github.com:gogotanaka/insta_bed_api.git'
 set :branch, 'master'
 
 # Default deploy_to directory is /var/www/my_app
