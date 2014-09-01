@@ -10,13 +10,15 @@ class InvitationsController < ApplicationController
 
   def new
     @invitation = Invitation.new
+    2.times { @invitation.images.build }
   end
 
   def edit
   end
 
   def create
-    @invitation = Invitation.new(invitation_params)
+    binding.pry
+    @invitation = Invitation.new(permit_params)
     @invitation.user = current_user
 
     respond_to do |format|
@@ -54,7 +56,20 @@ class InvitationsController < ApplicationController
     @invitation = Invitation.find(params[:id])
   end
 
-   private  def invitation_params
-    params.require(:invitation).permit(:price, :address, :describe, :email, :image)
+   private  def permit_params
+    params.
+    require(:invitation).
+    permit(
+      :price,
+      :address,
+      :describe,
+      :email,
+      :image,
+      {
+        images_attributes: [
+          :image
+        ]
+      }
+    )
   end
 end

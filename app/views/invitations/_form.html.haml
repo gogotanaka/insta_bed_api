@@ -22,9 +22,10 @@
     = f.label :email, class: 'col-sm-2 control-label'
     .col-sm-4
       = f.text_field :email, class: 'form-control'
-  .form-group.row
-    = f.label :image, class: 'col-sm-2 control-label'
-    .col-sm-4
-      = f.file_field :image, class: 'form-control'
+  = f.fields_for :images do |ff|
+    .form-group.row
+      = ff.label :image, class: 'col-sm-2 control-label'
+      .col-sm-4
+        = ff.file_field :image, class: 'form-control'
   .form-group.row
     = f.submit 'Save'

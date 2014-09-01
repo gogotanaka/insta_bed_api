@@ -11,19 +11,27 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140831052222) do
+ActiveRecord::Schema.define(version: 3) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "invitation_images", force: true do |t|
+    t.integer  "invitation_id", null: false
+    t.string   "image",         null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "invitation_images", ["invitation_id"], name: "index_invitation_images_on_invitation_id", using: :btree
+
   create_table "invitations", force: true do |t|
-    t.integer  "user_id"
+    t.integer  "user_id",         null: false
     t.integer  "booking_user_id"
-    t.integer  "price"
-    t.string   "address"
-    t.string   "describe"
-    t.string   "email"
-    t.string   "image"
+    t.integer  "price",           null: false
+    t.string   "address",         null: false
+    t.text     "describe"
+    t.string   "email",           null: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -56,5 +64,10 @@ ActiveRecord::Schema.define(version: 20140831052222) do
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   add_index "users", ["uid", "provider"], name: "index_users_on_uid_and_provider", unique: true, using: :btree
+
+  add_foreign_key "invitation_images", "invitations", name: "invitation_images_invitation_id_fk", dependent: :delete
+
+  add_foreign_key "invitations", "users", name: "invitations_booking_user_id_fk", column: "booking_user_id", dependent: :delete
+  add_foreign_key "invitations", "users", name: "invitations_user_id_fk", dependent: :delete
 
 end

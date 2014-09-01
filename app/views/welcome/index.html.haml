@@ -7,4 +7,5 @@
     %h6
       = 'ユーザー: '
       = link_to invitation.user.try(:name), invitation.user
-    %h6= image_tag invitation.image, width: '200px'
+    - invitation.images.each do |image|
+      = image_tag image.image, width: '200px'

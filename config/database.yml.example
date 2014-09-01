@@ -1,0 +1,19 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
+  username: insta_bed
+  timeout: 5000
+  password:
+
+development:
+  <<: *default
+  database: insta_bed_development
+
+test:
+  <<: *default
+  database: insta_bed_test
+
+production:
+  <<: *default
+  database: insta_bed_production

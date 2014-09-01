@@ -8,6 +8,14 @@ GIT
       sprockets (~> 2.8, <= 2.11.0)
       sprockets-rails (~> 2.0.0)
 
+GIT
+  remote: git://github.com/ctran/annotate_models.git
+  revision: 038b13c04e575cc0f0c89c702c994166c7dc9955
+  specs:
+    annotate (2.6.5)
+      activerecord (>= 2.3.0)
+      rake (>= 0.8.7)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -39,6 +47,12 @@ GEM
       tzinfo (~> 1.1)
     arel (5.0.1.20140414130214)
     bcrypt (3.1.7)
+    better_errors (2.0.0)
+      coderay (>= 1.0.0)
+      erubis (>= 2.6.6)
+      rack (>= 0.9.0)
+    binding_of_caller (0.7.2)
+      debug_inspector (>= 0.0.1)
     bootflat-rails (0.1.9)
       bootstrap-sass (~> 3.1)
       jquery-rails (~> 3.1)
@@ -70,6 +84,7 @@ GEM
       execjs
     coffee-script-source (1.7.1)
     colorize (0.7.3)
+    debug_inspector (0.0.2)
     devise (3.2.4)
       bcrypt (~> 3.0)
       orm_adapter (~> 0.1)
@@ -82,6 +97,8 @@ GEM
       multipart-post (>= 1.2, < 3)
     font-awesome-rails (4.1.0.0)
       railties (>= 3.2, < 5.0)
+    foreigner (1.6.1)
+      activerecord (>= 3.0.0)
     haml (4.0.5)
       tilt
     haml-rails (0.5.3)
@@ -204,6 +221,9 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  annotate!
+  better_errors
+  binding_of_caller
   bootflat-rails
   capistrano
   capistrano-bundler
@@ -212,6 +232,7 @@ DEPENDENCIES
   coffee-rails (~> 4.0.0)
   devise
   font-awesome-rails
+  foreigner
   haml-rails
   jbuilder (~> 2.0)
   jquery-rails

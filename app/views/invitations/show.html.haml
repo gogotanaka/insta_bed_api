@@ -12,7 +12,8 @@
 
 %p
   %b Image:
-  = image_tag @invitation.image, width: '200px'
+  - @invitation.images.each do |image|
+    = image_tag image.image, width: '200px'
 
 
 
