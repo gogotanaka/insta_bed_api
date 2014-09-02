@@ -16,5 +16,8 @@
     = image_tag image.image, width: '200px'
 
 
+- if current_user
+  = link_to 'Book', book_user_path(current_user, invitation_id: @invitation.id), data: {confirm: 'Bookしますが本当によろしいでしょうか？'}, method: :post
+- else
+  = link_to 'Book', '#', onclick: 'alert("ログインするとBook出来るようになります。")'
 
-= link_to 'Book', book_user_path(current_user, invitation_id: @invitation.id), data: {confirm: 'Bookしますが本当によろしいでしょうか？'}, method: :post
