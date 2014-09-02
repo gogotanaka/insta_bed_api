@@ -1,0 +1,16 @@
+%ul#newsWrapper
+  - invitations.each do |invitation|
+    %li.newsList.clearfix
+      .newsWrapper
+        .voteInfo
+          .voteBtn
+          .voteCount
+        .newsContents
+          %h2= link_to invitation.address, invitation_path(invitation)
+          .detail
+            = ' by '
+            = user_link(invitation.user)
+            = '  ' + formalize(invitation.created_at)
+            - if current_user == invitation.user
+              = link_to 'x', invitations_path(invitation), method: :delete, class: 'red-color', data: {confirm: 'invitationを削除します。本当に宜しいでしょうか。'}
+    .borderDiv{style: 'width: 770px'}

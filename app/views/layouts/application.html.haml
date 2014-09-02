@@ -26,17 +26,19 @@
         .pull-right
           .clearfix.Btns
             - if current_user
-              = link_to destroy_user_session_path, method: :delete, class: 'btn-logout pull-right' do
+
+              = link_to current_user, class: 'btn-logout pull-right' do
                 .clearfix
-                  %i.fa.fa-power-off.pull-left
+                  %i.fa.fa-home.pull-left
                   %p.pull-left{style: 'font-size: 15px; line-height: 21px; padding-top: 5px;'}
-                    Logout
+                    Home
 
               = link_to new_invitation_path, class: 'pull-right btn-post' do
                 .clearfix
                   %i.fa.fa-pencil-square-o.pull-left
                   %p.pull-left{style: 'font-size: 15px; line-height: 21px; padding-top: 5px;'}
                     Invitation
+
 
             - else
               = link_to user_omniauth_authorize_path(:facebook), class: 'btn-facebook pull-right' do

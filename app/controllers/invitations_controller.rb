@@ -17,7 +17,6 @@ class InvitationsController < ApplicationController
   end
 
   def create
-    binding.pry
     @invitation = Invitation.new(permit_params)
     @invitation.user = current_user
 
